@@ -1,0 +1,49 @@
+
+<body>
+<div class="container-fluid">
+      <h1 class="text-center my-5">ITEMS</h1>
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Order Number</th>
+                <th>Contact Name</th>
+                <th>Order Date</th>
+                <th>Items</th>
+                <th>Fetch</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let order of orders">
+                <td>{{ order.id }}</td>
+                <td>{{ order.orderNo }}</td>
+                <td>{{ order.contactName }}</td>
+                <td>{{ order.orderDate }}</td>
+                <td>{{ order.itemsOrdered.length }}</td>
+                <td><button class="btn btn-primary btn-sm" (click)="fetchOrders(order)">Fetch</button></td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div *ngIf="selectedOrderItems.length > 0" class="row row-cols-1 row-cols-md-3 g-4">
+        <h2>Fetched Items:</h2>
+        <div class="col" *ngFor="let item of selectedOrderItems">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Quantity: {{ item.quantity }}</h6>
+              <p class="card-text">Price: {{ item.price }}</p>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+</body>
+
+
+<a routerLink="/view-orders">Back to Orders</a>

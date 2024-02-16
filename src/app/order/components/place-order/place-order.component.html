@@ -1,0 +1,58 @@
+<form #orderForm="ngForm">
+<div class="container mt-5" style="background-image: url('../../../../assets/mm2.jpg')">
+    <h1 class="mb-4 text-primary">Place New Order</h1>
+
+    <form>
+      <div class="mb-3">
+        <label for="orderNo" class="form-label">Order ID</label>
+        <input type="text" class="form-control" id="orderId" name="orderId" [(ngModel)]="newOrder.id" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="orderNo" class="form-label">Order Number</label>
+        <input type="text" class="form-control" id="orderNo" name="orderNo" [(ngModel)]="newOrder.orderNo" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="orderNo" class="form-label">Order Date</label>
+        <input type="text" class="form-control" id="orderDate" name="orderDate" [(ngModel)]="newOrder.orderDate" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="contactName" class="form-label">Contact Name</label>
+        <input type="text" class="form-control" id="contactName" [(ngModel)]="newOrder.contactName"[ngModelOptions]="{standalone:true}" required>
+      </div>
+
+      <h4 class="mb-3">Items Ordered</h4>
+      <div *ngFor="let item of newOrder.itemsOrdered; let i = index; trackBy: trackByFn"  class="mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="itemName{{i}}" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="itemName{{i}}" name="itemName{{i}}" [(ngModel)]="item.name" required>
+          </div>
+  
+          <div class="col-md-2">
+            <label for="quantity{{i}}" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity{{i}}" name="quantity{{i}}" [(ngModel)]="item.quantity" required>
+          </div>
+          
+          <div class="col-md-2">
+            <label for="price{{i}}" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price{{i}}" name="price{{i}}" [(ngModel)]="item.price" required>
+          </div>
+          <div class="col-md-2">
+            <label for="itemValue{{i}}" class="form-label">Item Value</label>
+            <input type="number" class="form-control" id="itemValue{{i}}" name="itemValue{{i}}" [(ngModel)]="item.itemValue" required>
+          </div>
+  
+          <div class="col-md-3">
+            <button type="button" class="btn btn-danger" (click)="removeItem(i)">Remove Item</button>
+          </div>
+        </div>
+      </div>
+  
+      <button type="button" class="btn btn-success" (click)="addItem()">Add Item</button>
+      <button type="button" class="btn btn-primary mt-3" (click)="addOrder()">Add Order</button>
+    </form>
+  </div>
+</form>

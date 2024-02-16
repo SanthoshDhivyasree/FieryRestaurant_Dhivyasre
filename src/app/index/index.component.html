@@ -1,0 +1,33 @@
+
+
+<div class="container" style="border: 3px solid white;background-image: url('../../assets/food.jpg'); background-size: cover; margin-top: 50px;">
+    <div class="row">
+      <div class="col-md-8 offset-md-2"> 
+        <h1 class="text-center welcome-text" style="color: #000000;margin-top: 11%;margin-left: 5px;"></h1>
+        
+        <div class="card" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+            <div class="login-container" >
+                <div class="login-form mt-5" >
+                  <h2 style="text-align: center;">Login</h2>
+                  <form #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
+                    <div class="mb-3">
+                      <label for="username" class="form-label" style="text-align: center;">Username</label>
+                      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username">
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label" style="text-align: center;">Password</label>
+                      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
+                </div>
+              </div>
+  </div>
+  <footer>
+    <p>&copy; 2023 FieryRestaurant</p>
+  </footer> 
+ </div>
+<footer>hi
+    <p>&copy; 2023 FieryRestaurant</p>
+</footer> 
+  </div> 
